@@ -5,13 +5,13 @@ $("#currentDay").html(todayDate);
 
 $(document).ready(function () {
 
-    // click event listener for save button
+    // Click event listener for save button
     $(".saveBtn").on("click", function () {
         // Get nearby values of the description in JQuery
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
 
-    // Save text in local storage
+    // Saving added text in local storage
         localStorage.setItem(time, text);
     })
    
@@ -20,11 +20,11 @@ $(document).ready(function () {
         //get current number of hours.
         var timeNow = moment().hour();
 
-        // loop over time blocks
+        // Loop over time blocks
         $(".time-block").each(function () {
             var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
-            // To check the time and add the classes for background indicators
+            // Background colors for timeblocks
             if (blockTime < timeNow) {
                 $(this).removeClass("future");
                 $(this).removeClass("present");
@@ -57,5 +57,3 @@ $(document).ready(function () {
 
     timeTracker();
 });
-
-// new test
