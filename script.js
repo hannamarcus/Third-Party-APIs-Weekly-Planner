@@ -1,15 +1,16 @@
-// Display current date at top
+// Current date and time for header
 var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
 
 $(document).ready(function () {
+
     // saveBtn click listener 
     $(".saveBtn").on("click", function () {
         // Get nearby values of the description in JQuery
         var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
 
-        // Save text in local storage
+    // Save text in local storage
         localStorage.setItem(time, text);
     })
    
@@ -42,7 +43,6 @@ $(document).ready(function () {
     }
 
     // Get item from local storage if any
-    $("#timeAt8 .description").val(localStorage.getItem("timeAt8"));
     $("#timeAt9 .description").val(localStorage.getItem("timeAt9"));
     $("#timeAt10 .description").val(localStorage.getItem("timeAt10"));
     $("#timeAt11 .description").val(localStorage.getItem("timeAt11"));
@@ -54,4 +54,4 @@ $(document).ready(function () {
     $("#timeAt5 .description").val(localStorage.getItem("timeAt5"));
 
     timeTracker();
-})
+});
