@@ -1,5 +1,4 @@
 // Current date and time for header
-
 var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
 
@@ -17,10 +16,9 @@ $(document).ready(function () {
    
     // Current time 
     function timeTracker() {
-        //get current number of hours.
         var timeNow = moment().hour();
 
-        // Loop over time blocks
+        // Loop over time-blocks
         $(".time-block").each(function () {
             var blockTime = parseInt($(this).attr("id").split("hour")[1]);
 
@@ -44,7 +42,7 @@ $(document).ready(function () {
         })
     }
 
-    // Local storage
+    // Local Storage
     $("#timeAt9 .description").val(localStorage.getItem("timeAt9"));
     $("#timeAt10 .description").val(localStorage.getItem("timeAt10"));
     $("#timeAt11 .description").val(localStorage.getItem("timeAt11"));
