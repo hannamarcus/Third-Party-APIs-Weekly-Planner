@@ -1,10 +1,11 @@
 // Current date and time for header
+
 var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
 
 $(document).ready(function () {
 
-    // saveBtn click listener 
+    // click event listener for save button
     $(".saveBtn").on("click", function () {
         // Get nearby values of the description in JQuery
         var text = $(this).siblings(".description").val();
@@ -14,6 +15,7 @@ $(document).ready(function () {
         localStorage.setItem(time, text);
     })
    
+    // Track time
     function timeTracker() {
         //get current number of hours.
         var timeNow = moment().hour();
@@ -42,7 +44,7 @@ $(document).ready(function () {
         })
     }
 
-    // Get item from local storage if any
+    // Local storage
     $("#timeAt9 .description").val(localStorage.getItem("timeAt9"));
     $("#timeAt10 .description").val(localStorage.getItem("timeAt10"));
     $("#timeAt11 .description").val(localStorage.getItem("timeAt11"));
