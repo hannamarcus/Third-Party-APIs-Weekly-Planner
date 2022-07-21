@@ -7,8 +7,10 @@ $(document).ready(function () {
     // Click event listener for save button
     $(".saveBtn").on("click", function () {
         // Get nearby values of the description in JQuery
-        var text = $(this).siblings(".description").val();
+        var text = $(this).siblings(".input").val();
         var time = $(this).parent().attr("id");
+
+        console.log(text)
 
     // Saving added text in local storage
         localStorage.setItem(time, text);
@@ -16,11 +18,11 @@ $(document).ready(function () {
    
     // Current time 
     function timeTracker() {
-        var timeNow = moment().hour();
+        var timeNow = moment().hour()
 
         // Loop over time-blocks
         $(".time-block").each(function () {
-            var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+            var blockTime = parseInt($(this).attr("id").split("timeAt")[1]);
 
             // Background colors for timeblocks
             if (blockTime < timeNow) {
@@ -43,15 +45,17 @@ $(document).ready(function () {
     }
 
     // Local Storage
-    $("#timeAt9 .description").val(localStorage.getItem("timeAt9"));
-    $("#timeAt10 .description").val(localStorage.getItem("timeAt10"));
-    $("#timeAt11 .description").val(localStorage.getItem("timeAt11"));
-    $("#timeAt12 .description").val(localStorage.getItem("timeAt12"));
-    $("#timeAt1 .description").val(localStorage.getItem("timeAt1"));
-    $("#timeAt2 .description").val(localStorage.getItem("timeAt2"));
-    $("#timeAt3 .description").val(localStorage.getItem("timeAt3"));
-    $("#timeAt4 .description").val(localStorage.getItem("timeAt4"));
-    $("#timeAt5 .description").val(localStorage.getItem("timeAt5"));
+    $("#timeAt9 .input").val(localStorage.getItem("timeAt9"));
+    $("#timeAt10 .input").val(localStorage.getItem("timeAt10"));
+    $("#timeAt11 .input").val(localStorage.getItem("timeAt11"));
+    $("#timeAt12 .input").val(localStorage.getItem("timeAt12"));
+    $("#timeAt13 .input").val(localStorage.getItem("timeAt13"));
+    $("#timeAt14 .input").val(localStorage.getItem("timeAt14"));
+    $("#timeAt15 .input").val(localStorage.getItem("timeAt15"));
+    $("#timeAt16 .input").val(localStorage.getItem("timeAt16"));
+    $("#timeAt17 .input").val(localStorage.getItem("timeAt17"));
+    $("#timeAt18 .input").val(localStorage.getItem("timeAt18"));
+    $("#timeAt19 .input").val(localStorage.getItem("timeAt19"));
 
     timeTracker();
 });
