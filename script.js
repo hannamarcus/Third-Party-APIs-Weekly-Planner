@@ -4,22 +4,27 @@ $("#currentDay").html(todayDate);
 
 $(document).ready(function () {
 
- // Use JQuery and event listener to save input on click
+    // Click event listener for save button
     $(".saveBtn").on("click", function () {
+        // Get nearby values of the description in JQuery
         var text = $(this).siblings(".input").val();
         var time = $(this).parent().attr("id");
 
         console.log(text)
 
-// Save time for local storage
+    // Saving added text in local storage
         localStorage.setItem(time, text);
     })
+   
+    // Current time 
+    function timeTracker() {
+        var timeNow = moment().hour()
 
-// Loop over time-blocks
+        // Loop over time-blocks
         $(".time-block").each(function () {
             var blockTime = parseInt($(this).attr("id").split("timeAt")[1]);
 
-// Background colors for timeblocks
+            // Background colors for timeblocks
             if (blockTime < timeNow) {
                 $(this).removeClass("future");
                 $(this).removeClass("present");
@@ -39,7 +44,7 @@ $(document).ready(function () {
         })
     }
 
-// Local Storage Input 
+    // Local Storage
     $("#timeAt9 .input").val(localStorage.getItem("timeAt9"));
     $("#timeAt10 .input").val(localStorage.getItem("timeAt10"));
     $("#timeAt11 .input").val(localStorage.getItem("timeAt11"));
